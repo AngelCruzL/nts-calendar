@@ -2,4 +2,9 @@ import { config } from 'dotenv';
 
 config();
 
-export const SERVER_PORT = process.env.PORT || 5000;
+export default {
+  SERVER_PORT: process.env.PORT || 5000,
+  MONGO_USER: process.env.MONGO_USER,
+  MONGO_PASSWORD: process.env.MONGO_PASSWORD,
+  MONGO_DATABASE: process.env.MONGO_DB,
+};
