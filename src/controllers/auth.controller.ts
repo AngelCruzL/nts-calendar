@@ -5,9 +5,9 @@ import User from '../models/User.model';
 
 export const createNewUser = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  try {
-    let user = await User.findOne({ email });
+  let user = await User.findOne({ email });
 
+  try {
     if (user)
       return res.status(400).json({
         ok: false,
@@ -35,15 +35,38 @@ export const createNewUser = async (req: Request, res: Response) => {
   }
 };
 
-export const login = (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
+  const user = await User.findOne({ email });
 
-  return res.json({
-    ok: true,
-    message: 'Login exitoso',
-    email,
-    password,
-  });
+  try {
+    if (!user)
+      return res.status(400).json({
+        ok: false,
+        message: 'Usuario o contraseña incorrecto',
+      });
+
+    const isValidPassword = bcrypt.compareSync(password, user.password);
+    if (!isValidPassword)
+      return res.status(400).json({
+        ok: false,
+        message: 'Contraseña no valida',
+      });
+
+    // TODO: JWT match
+
+    return res.json({
+      ok: true,
+      uid: user.id,
+      name: user.name,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      message: 'Ocurrió un error',
+    });
+  }
 };
 
 export const renewToken = (req: Request, res: Response) => {
