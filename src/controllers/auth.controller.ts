@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 
 import User from '../models/User.model';
+import generateJWT from '../helpers/jwt';
 
 export const createNewUser = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -21,10 +22,13 @@ export const createNewUser = async (req: Request, res: Response) => {
 
     await user.save();
 
+    const token = await generateJWT(user.id, user.name);
+
     return res.status(201).json({
       ok: true,
       uid: user.id,
       name: user.name,
+      token,
     });
   } catch (error) {
     console.log(error);
@@ -53,12 +57,13 @@ export const login = async (req: Request, res: Response) => {
         message: 'Contraseña no valida',
       });
 
-    // TODO: JWT match
+    const token = await generateJWT(user.id, user.name);
 
     return res.json({
       ok: true,
       uid: user.id,
       name: user.name,
+      token,
     });
   } catch (error) {
     console.log(error);
