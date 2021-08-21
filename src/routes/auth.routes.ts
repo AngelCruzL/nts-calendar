@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { check } from 'express-validator';
 
 import * as authController from '../controllers/auth.controller';
+import fieldsValidation from '../middlewares/fieldsValidation';
 
 const router = Router();
 
@@ -14,6 +15,7 @@ router.post(
     check('password', 'El password debe ser al menos de 6 caracteres').isLength(
       { min: 6 }
     ),
+    fieldsValidation,
   ],
   authController.login
 );
@@ -26,6 +28,7 @@ router.post(
     check('password', 'El password debe ser al menos de 6 caracteres').isLength(
       { min: 6 }
     ),
+    fieldsValidation,
   ],
   authController.createNewUser
 );
