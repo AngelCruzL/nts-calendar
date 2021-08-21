@@ -1,0 +1,9 @@
+@api=http://localhost:5000
+
+GET {{api}}/api/auth/renew
+
+### Post login data
+POST {{api}}/api/auth/
+
+### Create new user
+POST {{api}}/api/auth/new
