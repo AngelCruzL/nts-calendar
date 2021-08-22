@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
   "name": "John Smith",
-  "email": "email@email.com",
+  "email": "email2@email.com",
   "password": "1234567"
 }
 
@@ -42,9 +42,16 @@ Content-Type: application/json
 }
 
 ### Update an event
-PUT {{api}}/api/events/123
+PUT {{api}}/api/events/612259af429ed427d0192990
 x-token: {{token}}
+Content-Type: application/json
 
+{
+  "title": "Cumple del jefe",
+  "notes": "Nota kul",
+  "start": 1,
+  "end": 1000000
+}
 
 ### Delete an event
 DELETE {{api}}/api/events/4564
