@@ -22,3 +22,22 @@ Content-Type: application/json
   "email": "email@email.com",
   "password": "1234567"
 }
+
+### Get events
+GET {{api}}/api/events
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTIxNmEzNjk4YTAxMTA5ZDA5ZDRmODciLCJuYW1lIjoiSm9obiBTbWl0aCIsImlhdCI6MTYyOTU5NDY2MiwiZXhwIjoxNjI5NjAxODYyfQ.GjMtbcQYa0hNRwG-FMw6qVc8d6YJ_IAvXYSbyOIcSQM
+
+
+### Create a new event
+POST {{api}}/api/events
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTIxNmEzNjk4YTAxMTA5ZDA5ZDRmODciLCJuYW1lIjoiSm9obiBTbWl0aCIsImlhdCI6MTYyOTU5NDY2MiwiZXhwIjoxNjI5NjAxODYyfQ.GjMtbcQYa0hNRwG-FMw6qVc8d6YJ_IAvXYSbyOIcSQM
+
+
+### Update an event
+PUT {{api}}/api/events/123
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTIxNmEzNjk4YTAxMTA5ZDA5ZDRmODciLCJuYW1lIjoiSm9obiBTbWl0aCIsImlhdCI6MTYyOTU5NDY2MiwiZXhwIjoxNjI5NjAxODYyfQ.GjMtbcQYa0hNRwG-FMw6qVc8d6YJ_IAvXYSbyOIcSQM
+
+
+### Delete an event
+DELETE {{api}}/api/events/4564
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTIxNmEzNjk4YTAxMTA5ZDA5ZDRmODciLCJuYW1lIjoiSm9obiBTbWl0aCIsImlhdCI6MTYyOTU5NDY2MiwiZXhwIjoxNjI5NjAxODYyfQ.GjMtbcQYa0hNRwG-FMw6qVc8d6YJ_IAvXYSbyOIcSQM
