@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 import config from '../config';
+import { JWTValidation } from '../interfaces/JwtValidation';
 
 const jwtValidation = (req: Request, res: Response, next: NextFunction) => {
   const token = req.header('x-token');
@@ -24,10 +25,3 @@ const jwtValidation = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export default jwtValidation;
-
-type JWTValidation = {
-  uid: string;
-  name: string;
-  iat: number;
-  exp: number;
-};
