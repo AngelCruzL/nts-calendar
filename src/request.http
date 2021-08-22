@@ -54,5 +54,5 @@ Content-Type: application/json
 }
 
 ### Delete an event
-DELETE {{api}}/api/events/4564
+DELETE {{api}}/api/events/6122657ff8de280cf8767c28
 x-token: {{token}}
