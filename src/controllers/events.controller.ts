@@ -1,5 +1,8 @@
 import { Request, Response } from 'express';
 
+import Event from '../models/Event.model';
+import { CustomEvent } from '../interfaces/CustomEvent';
+
 export const getEvents = (req: Request, res: Response) => {
   res.status(200).json({
     ok: true,
@@ -7,13 +10,25 @@ export const getEvents = (req: Request, res: Response) => {
   });
 };
 
-export const createEvent = (req: Request, res: Response) => {
-  console.log(req.body);
+export const createEvent = async (req: Request, res: Response) => {
+  const event = new Event(req.body);
 
-  res.status(200).json({
-    ok: true,
-    message: 'create',
-  });
+  try {
+    (event as CustomEvent).user = req.uid;
+
+    const savedEvent = await event.save();
+
+    res.status(200).json({
+      ok: true,
+      event: savedEvent,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      message: 'Hable con el administrador',
+    });
+  }
 };
 export const updateEvent = (req: Request, res: Response) => {
   const { id } = req.params;
