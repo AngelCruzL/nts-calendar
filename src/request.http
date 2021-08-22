@@ -1,6 +1,8 @@
 @api=http://localhost:5000
 
+### Revalidate JWT
 GET {{api}}/api/auth/renew
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTIxNmEzNjk4YTAxMTA5ZDA5ZDRmODciLCJuYW1lIjoiSm9obiBTbWl0aCIsImlhdCI6MTYyOTU5NDY2MiwiZXhwIjoxNjI5NjAxODYyfQ.GjMtbcQYa0hNRwG-FMw6qVc8d6YJ_IAvXYSbyOIcSQM
 
 ### Post login data
 POST {{api}}/api/auth/

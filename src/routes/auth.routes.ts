@@ -2,11 +2,12 @@ import { Router } from 'express';
 import { check } from 'express-validator';
 
 import * as authController from '../controllers/auth.controller';
+import jwtValidation from '../middlewares/jwtValidation';
 import fieldsValidation from '../middlewares/fieldsValidation';
 
 const router = Router();
 
-router.get('/renew', authController.renewToken);
+router.get('/renew', jwtValidation, authController.renewToken);
 
 router.post(
   '/',
