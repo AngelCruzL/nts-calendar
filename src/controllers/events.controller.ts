@@ -3,10 +3,12 @@ import { Request, Response } from 'express';
 import Event from '../models/Event.model';
 import { CustomEvent } from '../interfaces/CustomEvent';
 
-export const getEvents = (req: Request, res: Response) => {
+export const getEvents = async (req: Request, res: Response) => {
+  const events = await Event.find().populate('user', 'name');
+
   res.status(200).json({
     ok: true,
-    message: 'get events',
+    events,
   });
 };
 
