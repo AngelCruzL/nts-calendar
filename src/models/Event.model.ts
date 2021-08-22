@@ -23,4 +23,10 @@ const EventSchema = new Schema({
   },
 });
 
+EventSchema.method('toJSON', function () {
+  const { __v, _id, ...object } = this.toObject();
+  object.id = _id;
+  return object;
+});
+
 export default model('Event', EventSchema);
