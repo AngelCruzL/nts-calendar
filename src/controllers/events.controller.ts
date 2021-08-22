@@ -8,6 +8,8 @@ export const getEvents = (req: Request, res: Response) => {
 };
 
 export const createEvent = (req: Request, res: Response) => {
+  console.log(req.body);
+
   res.status(200).json({
     ok: true,
     message: 'create',
