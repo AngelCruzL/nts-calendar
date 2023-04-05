@@ -1,6 +1,6 @@
 # Calendar Backend
 
-This is a calendar backend for the [Calendar App](https://tsx-calendar.netlify.app), was developed with Node.js and Express.js using Typescript.
+This is a calendar backend for the [Calendar App](https://calendar-app.angelcruzl.dev), was developed with Node.js and Express.js using Typescript.
 
 ## Technologies
 
